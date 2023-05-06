@@ -256,11 +256,11 @@ def attendance():
         duration = timedelta(hours=clock_out.hour, minutes=clock_out.minute) - timedelta(hours=clock_in.hour, minutes=clock_in.minute)
         
         # insert attendance data into MySQL database
-        cursor = mydb.cursor()
+        cursor = db_conn.cursor()
         sql = "INSERT INTO attendance (emp_id, date, clock_in, clock_out, duration) VALUES (%s, %s, %s, %s, %s)"
         val = (emp_id, date, clock_in, clock_out, duration)
         cursor.execute(sql, val)
-        mydb.commit()
+        db_conn.commit()
         
     return render_template('attendance.html', duration = duration)
 
