@@ -1684,6 +1684,7 @@
 
 	/* Main */
 
+
 	#main {
 		-moz-flex-grow: 1;
 		-webkit-flex-grow: 1;
@@ -1714,7 +1715,7 @@
 		z-index: 3;
 	}
 
-	#main article {
+	#main section {
 		-moz-transform: translateY(0.25rem);
 		-webkit-transform: translateY(0.25rem);
 		-ms-transform: translateY(0.25rem);
@@ -1728,15 +1729,14 @@
 		width: 40rem;
 		max-width: 100%;
 		background-color: rgba(255, 255, 255, 0.13);
-		transform: translate(-50%, -50%);
+		/* transform: translate(-50%, -50%); */
 		border-radius: 7px;
 		backdrop-filter: blur(10px);
 		border: 2px solid rgba(255, 255, 255, 0.1);
 		box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-		opacity: 0;
 	}
 
-	#main article.active {
+	#main section.active {
 		-moz-transform: translateY(0);
 		-webkit-transform: translateY(0);
 		-ms-transform: translateY(0);
@@ -1744,7 +1744,7 @@
 		opacity: 1;
 	}
 
-	#main article .close {
+	#main section .close {
 		display: block;
 		position: absolute;
 		top: 0;
@@ -1757,7 +1757,7 @@
 		white-space: nowrap;
 	}
 
-	#main article .close:before {
+	#main section .close:before {
 		-moz-transition: background-color 0.2s ease-in-out;
 		-webkit-transition: background-color 0.2s ease-in-out;
 		-ms-transition: background-color 0.2s ease-in-out;
@@ -1776,17 +1776,17 @@
 		background-repeat: no-repeat;
 	}
 
-	#main article .close:hover:before {
+	#main section .close:hover:before {
 		background-color: rgba(255, 255, 255, 0.075);
 	}
 
-	#main article .close:active:before {
+	#main section .close:active:before {
 		background-color: rgba(255, 255, 255, 0.175);
 	}
 
 	@media screen and (max-width: 736px) {
 
-		#main article {
+		#main section {
 			padding: 3.5rem 2rem 0.5rem 2rem;
 		}
 
@@ -1802,7 +1802,7 @@
 
 	@media screen and (max-width: 480px) {
 
-		#main article {
+		#main section {
 			padding: 3rem 1.5rem 0.5rem 1.5rem;
 		}
 
@@ -1852,64 +1852,66 @@
 	<div id="wrapper">
 		<!-- Main -->
 		<div id="main">
+			<section id="outputSearch">
+				<h1>Employee Information</h1> <br>
+				<form style="text-align:center" action="index.html" autocomplete="on" method="GET">
+					<div class="fields">
+						<div class="field half">
+							<label for="emp_id">Employee ID</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ emp_id }}</p>
+						</div>
+						<div class="field half">
+							<label for="emp_name">Name</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ name }}</p>
+						</div>
 
-			<h1>Employee Information</h1> <br>
-			<form style="text-align:center" action="/">
-				<div class="fields">
-					<div class="field half">
-						<label for="emp_id">Employee ID</label>
-						{{ emp_id }} <br><br>
-					</div>
-					<div class="field half">
-						<label for="emp_name">Name</label>
-						{{ name }} <br><br>
-					</div>
+						<div class="field half">
+							<label for="email">Email</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ email }}</p>
+						</div>
 
-					<div class="field half">
-						<label for="email">Email</label>
-						{{ email }} <br><br>
-					</div>
+						<div class="field half">
+							<label for="contact">Contact</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ contact }}</p>							
+						</div>
 
-					<div class="field half">
-						<label for="contact">Contact</label>
-						{{contact }} <br><br>
-					</div>
+						<div class="field half">
+							<label for="location">Location</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ location }}</p>
+						</div>
 
-					<div class="field half">
-						<label for="location">Location</label>
-						{{ location }} <br><br>
-					</div>
+						<div class="field half">
+							<label for="position">Position</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ position }}</p>
+						</div>
 
-					<div class="field half">
-						<label for="position">Position</label>
-						{{ position }} <br><br>
-					</div>
+						<div class="field half">
+							<label for="pri_skill">Primary Skill</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ pri_skill }}</p>
+						</div>
 
-					<div class="field half">
-						<label for="pri_skill">Primary Skill</label>
-						{{ pri_skill }} <br><br>
-					</div>
+						<div class="field half">
+							<label for="hire_date">Hire Date</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ hire_date }}</p>
+						</div>
 
-					<div class="field half">
-						<label for="hire_date">Hire Date</label>
-						{{ hire_date }} <br><br>
-					</div>
+						<div class="field half">
+							<label for="payscale"> Payscale</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ payscale }}</p>
+						</div>
 
-					<div class="field half">
-						<label for="payscale"> Payscale</label>
-						{{ payscale }} <br><br>
+						<div class="field half">
+							<label for="img_url">Image URL</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ emp_image_file }}</p>
+						</div>
 					</div>
-
-					<div class="field half">
-						<label for="img_url">Image</label>
-						<img src="{{ img_src }}" alt="Example image" /><br><br>
-					</div>
-				</div>
-
-				<ul class="actions"  style=" justify-content: center;">
-					<li><button type="submit" formaction="index.html">BACK</button></li>
-				</ul>
+					<ul class="actions" style=" justify-content: center;">
+						<li><button type="submit" formaction="/">BACK</button></li>
+					</ul>
+				</form>
+				
 			</form>
+			</section>
 		</div>
 
 	</div>
