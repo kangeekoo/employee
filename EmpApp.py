@@ -25,8 +25,7 @@ table = 'employee'
 def home():
     return render_template('index.html')
 
-
-@app.route("/about", methods=['POST'])
+@app.route("/about")
 def about():
     return render_template('portfolio.html')
 
