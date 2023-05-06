@@ -109,7 +109,7 @@ def SearchEmp():
     pri_skill = emp_data[7]
     hire_date = emp_data[8]
     payscale = emp_data[9]
-    img_src = emp_date[10]
+    img_src = emp_data[10]
 
     # # fetch employee image file from S3 bucket
     # emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
