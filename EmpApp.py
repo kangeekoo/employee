@@ -299,9 +299,8 @@ def payroll():
     total_duration = 0
 
     # loop through all attendance data for the employee and sum up the duration
-    # loop through all attendance data for the employee and sum up the duration
     for attendance_data in emp_data_attendance:
-        duration_str = attendance_data[4]
+        duration_str = str(attendance_data[4])
         duration = datetime.strptime(duration_str, "%H:%M:%S").time()
         total_duration += timedelta(hours=duration.hour, minutes=duration.minute, seconds=duration.second)
         
