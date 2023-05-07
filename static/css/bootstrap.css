@@ -213,9 +213,8 @@
 	}
 
 	body {
-/* 		background: rgb(36, 75, 97);
-		background: linear-gradient(270deg, rgba(36, 75, 97, 0.9949229691876751) 36%, rgba(118, 123, 124, 1) 91%); */
-		background-image: url("{{ url_for('static', filename='images/wallpaper.jpg') }}");
+		background: rgb(30,72,96);
+		background: linear-gradient(270deg, rgba(30,72,96,0.9949229691876751) 0%, rgba(59,62,62,1) 100%);
 	}
 
 	body.is-preload *,
