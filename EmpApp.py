@@ -32,11 +32,11 @@ def about():
     return render_template('portfolio.html')
 
 @app.route("/aboutKE")
-def about():
+def aboutke():
     return render_template('portfolioKangee.html')
 
 @app.route("/aboutJK")
-def about():
+def aboutjk():
     return render_template('portfolioJiekee.html')
 
 @app.route("/addemp", methods=['POST'])
