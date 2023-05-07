@@ -112,13 +112,13 @@ def SearchEmp():
     payscale = emp_data[9]
     img_src = emp_data[10]
 
-    # # fetch employee image file from S3 bucket
-    # emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
-    # s3 = boto3.resource('s3')
-    # try:
-    #     emp_image_file = s3.Bucket(custombucket).Object(emp_image_file_name_in_s3).get()['Body'].read()
-    # except s3.meta.client.exceptions.NoSuchKey:
-    #     return "Employee image file not found in S3"
+    # fetch employee image file from S3 bucket
+    emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
+    s3 = boto3.resource('s3')
+    try:
+        emp_image_file = s3.Bucket(custombucket).Object(emp_image_file_name_in_s3).get()['Body'].read()
+    except s3.meta.client.exceptions.NoSuchKey:
+        return "Employee image file not found in S3"
 
     # render template with employee data
     emp_name = "" + first_name + " " + last_name
