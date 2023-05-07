@@ -215,8 +215,7 @@
 	body {
 /* 		background: rgb(36, 75, 97);
 		background: linear-gradient(270deg, rgba(36, 75, 97, 0.9949229691876751) 36%, rgba(118, 123, 124, 1) 91%); */
-		background-color: url('{{ img_src }}');
-
+		background-image: url("{{ url_for('static', filename='images/wallpaper.jpg') }}");
 	}
 
 	body.is-preload *,
