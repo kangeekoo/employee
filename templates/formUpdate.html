@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>KK Employee Management System</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+</head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- Update -->
+            <section id="update2">
+                <h2 class="major">UPDATE Employee</h2>
+                <form action="/updatedata" autocomplete="on" method="POST" enctype="multipart/form-data">
+                    <div class="fields">
+                        <div class="field">
+                            <label for="id">Employee ID</label>
+                            <input type="text" name="emp_id" value="{{ emp_id }}" readonly />
+                        </div>
+                        <div class="field half">
+                            <label for="first_name">First Name</label>
+                            <input type="text" name="first_name" id="first_name" />
+                        </div>
+                        <div class="field half">
+                            <label for="last_name">Last Name</label>
+                            <input type="text" name="last_name" id="last_name" />
+                        </div>
+                        <div class="field half">
+                            <label for="email">Email</label>
+                            <input type="text" name="email" id="email" />
+                        </div>
+                        <div class="field half">
+                            <label for="contact">Contact</label>
+                            <input type="tel" name="contact" id="contact" pattern="^01\d-\d{7,8}$" />
+                        </div>
+                        <div class="field half">
+                            <label for="location">Location</label>
+                            <input type="text" name="location" id="location" />
+                        </div>
+                        <div class="field half">
+                            <label for="position">Position</label>
+                            <input type="text" name="position" id="position" />
+                        </div>
+                        <div class="field half">
+                            <label for="pri_skill">Primary Skills</label>
+                            <input type="text" name="pri_skill" id="pri_skill" />
+                        </div>
+                        <div class="field half">
+                            <label for="hire_date">Hire Date</label>
+                            <input type="date" name="hire_date" id="hire_date" />
+                        </div>
+                        <div class="field half">
+                            <label for="payscale">Payscale</label>
+                            <input type="number" name="payscale" id="payscale" />
+                        </div>
+                        <div class="field">
+                            <label for="image">Image</label>
+                            <input type="file" name="emp_img_file" id="emp_img_file" />
+                        </div>
+                    </div>
+                    <ul class="actions">
+                        <li><input type="submit" value="Submit" class="primary" /></li>
+                        <li><input type="reset" value="Reset" /></li>
+                    </ul>
+                </form>
+            </section>
+
+        </div>
+        <!-- BG -->
+        <div id="bg"></div>
+
+        <!-- Scripts -->
+        <script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+        <script src="{{ url_for('static', filename='js/util.js')}}"></script>
+
+</body>
+
+</html>

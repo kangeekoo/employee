@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<title>KK Employee Management System</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+		<!-- Main -->
+		<div id="main">
+			<section id="outputAdd">
+				<h1>ERROR</h1><br>
+				<h3>Following Employee are not found in the database</h3><br>
+				<h2>{{ emp_id }}</h2><br>
+				<title>No Emp Output</title>
+				<form action="/" autocomplete="on" method="GET">
+
+					<ul class="actions">
+						<li><button type="submit" formaction="/">BACK</button><br><br></li>
+					</ul>
+
+				</form>
+			</section>
+		</div>
+	</div>
+
+	<!-- BG -->
+	<div id="bg"></div>
+
+	<!-- Scripts -->
+	<script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script>
+	<script src="{{ url_for('static', filename='js/main.js')}}"></script>
+	<script src="{{ url_for('static', filename='js/util.js')}}"></script>
+
+</body>
+
+</html>

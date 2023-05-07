@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+	<title>KK Employee Management System</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+		<!-- Main -->
+		<div id="main">
+			<section id="outputSearch">
+				<h1>Employee Information</h1> <br>
+				<form style="text-align:center" action="/" autocomplete="on" method="GET">
+					<div class="fields">
+						<div class="field">
+							<label for="img_url">Image</label>
+							<img src="{{ img_src }}" alt="Example image" style="width:128px; height:131px;" />
+						</div>
+
+						<div class="field half">
+							<label for="emp_id">Employee ID</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ emp_id }}</p>
+						</div>
+						<div class="field half">
+							<label for="emp_name">Name</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ name }}</p>
+						</div>
+
+						<div class="field half">
+							<label for="email">Email</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ email }}</p>
+						</div>
+
+						<div class="field half">
+							<label for="contact">Contact</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ contact }}</p>
+						</div>
+
+						<div class="field half">
+							<label for="location">Location</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ location }}</p>
+						</div>
+
+						<div class="field half">
+							<label for="position">Position</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ position }}</p>
+						</div>
+
+						<div class="field half">
+							<label for="pri_skill">Primary Skill</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ pri_skill }}</p>
+						</div>
+
+						<div class="field half">
+							<label for="hire_date">Hire Date</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ hire_date }}</p>
+						</div>
+
+						<div class="field half">
+							<label for="payscale"> Payscale</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ payscale }}</p>
+						</div>
+					</div>
+					<ul class="actions" style=" justify-content: center;">
+						<li><button type="submit" formaction="/">BACK</button></li>
+					</ul>
+				</form>
+			</section>
+		</div>
+
+	</div>
+
+	<!-- BG -->
+	<div id="bg"></div>
+
+	<!-- Scripts -->
+	<script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script>
+	<script src="{{ url_for('static', filename='js/main.js')}}"></script>
+	<script src="{{ url_for('static', filename='js/util.js')}}"></script>
+
+</body>
+
+</html>
