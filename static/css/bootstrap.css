@@ -1913,6 +1913,20 @@
 		opacity: 0;
 	}
 
+	.attendance_container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	#attendance_table {
+		margin-top: 80px;
+	}
+
+	#row th {
+		color: #000000;
+	}
+
 	.overlay {
 		position: absolute;
 		top: 0;
