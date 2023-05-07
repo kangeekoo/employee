@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+
+<head>
+    <title>KK Employee Management System</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+</head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Main -->
+        <div id="main">
+
+            <!-- Update -->
+            <section id="attendance">
+                <h2 class="major">Employee Attendance</h2> <br><br>
+                <form action="/attendance" autocomplete="on" method="POST" enctype="multipart/form-data">
+                    <div class="fields">
+                        <table>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>Date</th>
+                                <th>Clock In</th>
+                                <th>Clock Out</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="field half">
+                                        <input type="number" name="emp_id" id="emp_id"
+                                            style="border-top: #000000; border-left: #000000; border-right: #000000; border-color: black;" />
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="field half">
+                                        <input type="date" name="date" id="date"
+                                            style="border: none; background: none;" />
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="field half">
+                                        <input type="time" name="clock_in" id="clock_in"
+                                            style="border: none; background: none;" />
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="field half">
+                                        <input type="time" name="clock_out" id="clock_out"
+                                            style="border: none; background:none;" />
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table id="attendance_table">
+                            <tr style="border: none;">
+                                <th colspan="5" style="text-align: center; color: #000000; border: none;">Attendance
+                                    Details</th>
+                            <tr id="row">
+                                <th>Employee ID</th>
+                                <th>Date</th>
+                                <th>Clock In</th>
+                                <th>Clock Out</th>
+                                <th>Duration</th>
+                            </tr>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="field half">
+                                        <p style="padding: 5px;">{{ emp_id }}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="field half">
+                                        <p style="padding: 5px;">{{ date }}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="field half">
+                                        <p style="padding: 5px;">{{ clock_in }}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="field half">
+                                        <p style="padding: 5px;">{{ clock_out}}</p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="field half">
+                                        <p style="padding: 5px;">{{ duration }}</p>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="attendance_container">
+                        <ul class="actions">
+                            <li><input type="submit" value="Submit" class="primary" /></li>
+                            <li><input type="reset" value="Reset" /></li>
+                        </ul>
+                        <ul class="actions" style=" justify-content: center;">
+                            <li><button type="submit" formaction="/">BACK</button></li>
+                        </ul>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </div>
+
+
+    </div>
+    <!-- BG -->
+    <div id="bg"></div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/jquery.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/main.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/util.js')}}"></script>
+
+</body>
+
+</html>
