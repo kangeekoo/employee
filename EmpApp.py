@@ -3,8 +3,6 @@ from pymysql import connections
 import os
 import boto3
 from config import *
-# from django.shortcuts import render
-# from django.template import RequestContext
 from datetime import datetime, timedelta
 
 app = Flask(__name__)
@@ -32,6 +30,14 @@ def home():
 @app.route("/about")
 def about():
     return render_template('portfolio.html')
+
+@app.route("/aboutKE")
+def about():
+    return render_template('portfolioKangee.html')
+
+@app.route("/aboutJK")
+def about():
+    return render_template('portfolioJiekee.html')
 
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
