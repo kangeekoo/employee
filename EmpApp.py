@@ -267,6 +267,63 @@ def attendance():
         
     return render_template('attendance.html', emp_id = emp_id, date=date, clock_in=clock_in, clock_out=clock_out, duration = duration)
 
+@app.route("/payroll", methods=['POST'])
+def payroll():
+    emp_id = request.form['emp_id']
+
+    # fetch employee data from MySQL database
+    select_sql_attendance = "SELECT * FROM attendance WHERE emp_id = %s"
+    select_sql_employee = "SELECT * FROM employee WHERE emp_id = %s"
+    cursor = db_conn.cursor()
+
+    # execute the attendance query
+    cursor.execute(select_sql_attendance, (emp_id,))
+    emp_data_attendance = cursor.fetchall()
+
+    # execute the employee query
+    cursor.execute(select_sql_employee, (emp_id,))
+    emp_data_employee = cursor.fetchone()
+
+    cursor.close()
+
+    if emp_data_attendance is None or emp_data_employee is None:
+        return "Employee not found"
+
+    first_name = emp_data_employee[1]
+    last_name = emp_data_employee[2]
+    email = emp_data_employee[3]
+    contact = emp_data_employee[4]
+    position = emp_data_employee[6]
+    payscale = emp_data_employee[9]
+
+    total_duration = 0
+
+    # loop through all attendance data for the employee and sum up the duration
+    for attendance_data in emp_data_attendance:
+        duration_str = attendance_data[5]
+        duration = datetime.datetime.strptime(duration_str, "%H:%M:%S").time()
+        total_duration += datetime.timedelta(hours=duration.hour, minutes=duration.minute, seconds=duration.second)
+
+    # calculate total duration in hours
+    total_seconds = total_duration.total_seconds()
+    total_duration_hours = round(total_seconds / 3600, 2)
+
+    # calculate salary based on total duration in hours
+    salary = calculate_salary(position, payscale, total_duration_hours)
+
+    emp_name = "" + first_name + " " + last_name
+    return render_template('outputSearch.html', emp_id= emp_id, name=emp_name, email=email, contact=contact, position=position, payscale=payscale, duration=total_duration, salary=salary)
+
+def calculate_salary(position, payscale, attendance):
+    # Calculate basic salary based on position and payscale
+    if position == "Manager":
+        salary_per_hour = payscale * 1.5
+    else:
+        salary_per_hour = payscale
+
+    total_salary = total_duration_hours * salary_per_hour
+
+    return total_salary
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
