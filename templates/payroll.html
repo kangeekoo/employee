@@ -505,10 +505,6 @@
 		width: calc(50% - 0.75rem);
 	}
 
-    form>.fields>.field.half2 {
-		width: calc(100% - 0.75rem);
-	}
-
 	form>.fields>.field.third {
 		width: calc(100%/3 - 0.5rem);
 	}
@@ -1889,7 +1885,12 @@
 							<p style="border: 1px solid white; padding: 5px;">{{ payscale }}</p>
 						</div>
 
-						<div class="field half2" style="text-align: center;">
+						<div class="field half">
+							<label for="total_duration"> Duration</label>
+							<p style="border: 1px solid white; padding: 5px;">{{ duration }}</p>
+						</div>
+
+						<div class="field half" style="text-align: center;">
 							<label for="salary"> Salary</label>
 							<p style="border: 1px solid white; padding: 5px;">{{ salary }}</p>
 						</div>
