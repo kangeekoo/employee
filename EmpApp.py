@@ -301,7 +301,7 @@ def payroll():
     # loop through all attendance data for the employee and sum up the duration
     for attendance_data in emp_data_attendance:
         duration = attendance_data[4]
-        total_duration += datetime.timedelta(hours=duration.hour, minutes=duration.minute, seconds=duration.second)
+        total_duration += timedelta(hours=duration.hour, minutes=duration.minute, seconds=duration.second)
 
     # calculate total duration in hours
     total_seconds = total_duration.total_seconds()
