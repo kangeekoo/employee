@@ -251,6 +251,17 @@ def attendance():
     duration = None
     if request.method == 'POST':
         emp_id = request.form['emp_id']
+
+        # fetch employee data from MySQL database
+        select_sql = "SELECT * FROM employee WHERE emp_id = %s"
+        cursor = db_conn.cursor()
+        cursor.execute(select_sql, (emp_id,))
+        emp_data = cursor.fetchone()
+        cursor.close()
+
+        if emp_data is None:
+            return render_template('notFound.html', emp_id=emp_id)
+
         date = request.form['date']
         clock_in = datetime.strptime(request.form['clock_in'], '%H:%M').time()
         clock_out = datetime.strptime(request.form['clock_out'], '%H:%M').time()
@@ -287,7 +298,7 @@ def payroll():
     cursor.close()
 
     if emp_data_attendance is None or emp_data_employee is None:
-        return "Employee not found"
+        return render_template('notFound.html', emp_id=emp_id)
 
     first_name = emp_data_employee[1]
     last_name = emp_data_employee[2]
@@ -309,19 +320,14 @@ def payroll():
     total_duration_hours = round(total_seconds / 3600, 2)
 
     # calculate salary based on total duration in hours
-    salary = calculate_salary(position, payscale, total_duration_hours)
+    salary = calculate_salary(payscale, total_duration_hours)
 
     emp_name = "" + first_name + " " + last_name
     return render_template('payroll.html', emp_id= emp_id, name=emp_name, email=email, contact=contact, position=position, payscale=payscale, duration=total_duration, salary=salary)
 
-def calculate_salary(position, payscale,  total_duration_hours):
-    # Calculate basic salary based on position and payscale
-    if position == "Manager":
-        salary_per_hour = payscale * 1.5
-    else:
-        salary_per_hour = payscale
-
-    total_salary = total_duration_hours * salary_per_hour
+def calculate_salary(payscale, total_duration_hours):
+    # Calculate basic salary based on payscale
+    total_salary = total_duration_hours * payscale
 
     return total_salary
 
