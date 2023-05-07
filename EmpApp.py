@@ -314,7 +314,7 @@ def payroll():
     emp_name = "" + first_name + " " + last_name
     return render_template('outputSearch.html', emp_id= emp_id, name=emp_name, email=email, contact=contact, position=position, payscale=payscale, duration=total_duration, salary=salary)
 
-def calculate_salary(position, payscale, attendance):
+def calculate_salary(position, payscale,  total_duration_hours):
     # Calculate basic salary based on position and payscale
     if position == "Manager":
         salary_per_hour = payscale * 1.5
