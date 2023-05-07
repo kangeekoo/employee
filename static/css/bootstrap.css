@@ -1337,10 +1337,6 @@
 		filter: blur(0.2rem);
 	}
 
-	body.is-preload #bg:before {
-		background-color: #000000;
-	}
-
 	/* Wrapper */
 
 	#wrapper {
