@@ -1897,6 +1897,11 @@
 		text-transform: uppercase;
 	}
 
+	.image {
+		width: 130px;
+		height: 138px;
+	}
+
 	body.is-article-visible #footer {
 		-moz-transform: scale(0.95);
 		-webkit-transform: scale(0.95);
