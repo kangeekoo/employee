@@ -1897,8 +1897,6 @@
 	.center {
 		max-width: 200px;
         	max-height: 200px;
-        	display: block;
-        	margin: 20px auto;
 		justify-content: center;
 	}
 
