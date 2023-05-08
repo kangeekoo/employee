@@ -1,30 +1,16 @@
-Dimension by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+# Install flask on EC2 
+# Either add "sudo" before all commands or use "sudo su" first
 
-
-This is Dimension, a fun little one-pager with modal-ized (is that a word?) "pages"
-and a cool depth effect (click on a menu item to see what I mean). Simple, fully
-responsive, and kitted out with all the usual pre-styled elements you'd expect.
-Hope you dig it :)
-
-Demo images* courtesy of Unsplash, a radtastic collection of CC0 (public domain) images
-you can use for pretty much whatever.
-
-(* = not included)
-
-AJ
-aj@lkn.io | @ajlkn
-
-
-Credits:
-
-	Demo Images:
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fontawesome.io)
-
-	Other:
-		jQuery (jquery.com)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+#!/bin/bash
+sudo su
+yum update -y
+yum install git -y
+git clone https://github.com/Zisan-art/aws-live.git
+cd aws-live
+ls
+yum install python-pip -y
+pip3 install flask
+pip3 install pymysql
+pip3 install boto3
+pip3 install DateTime
+python3 EmpApp.py
