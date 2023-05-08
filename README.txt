@@ -5,7 +5,7 @@
 sudo su
 yum update -y
 yum install git -y
-git clone https://github.com/Zisan-art/aws-live.git
+git clone https://github.com/kangeekoo/employee.git
 cd aws-live
 ls
 yum install python-pip -y
