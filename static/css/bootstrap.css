@@ -1897,7 +1897,6 @@
 	.center {
 		max-width: 200px;
         	max-height: 200px;
-		justify-content: center;
 	}
 
 	body.is-article-visible #footer {
