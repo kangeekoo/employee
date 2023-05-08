@@ -1,6 +1,3 @@
-# Install flask on EC2 
-# Either add "sudo" before all commands or use "sudo su" first
-
 #!/bin/bash
 sudo su
 yum update -y
