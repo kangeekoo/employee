@@ -1899,6 +1899,7 @@
         	max-height: 200px;
         	display: block;
         	margin: 20px auto;
+		align-items: center;
 	}
 
 	body.is-article-visible #footer {
